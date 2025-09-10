@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06.09.2025 20:24:26
+// Create Date: 06.09.2025 21:07:17
 // Design Name: 
 // Module Name: tb_srlatch
 // Project Name: 
@@ -20,6 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+ 
 module tb_srlatch;
 
     reg S, R;         // Testbench inputs
@@ -38,13 +39,14 @@ module tb_srlatch;
         $monitor("Time=%0t | S=%b R=%b | Q=%b Qbar=%b", $time, S, R, Q, Qbar);
 
         // Test sequence
-        S=0; R=0; #10;  // Hold condition (previous state remains)
-        S=0; R=1; #10;
-        S=1; R=1; #10;  // Reset condition (Q=0, Qbar=1)
-        S=1; R=0; #10;  // Set condition   (Q=1, Qbar=0)
-        S=1; R=1; #10;
-        S=1; R=1; #10;  // Invalid condition (both outputs go to 0 temporarily)
+        S=0; R=0; #10;  
+        S=0; R=1; #10;  
+        S=0; R=0; #10;
+        S=1; R=0; #10;  
+        S=0; R=0; #10;
+        S=1; R=1; #10; 
 
         $finish;
     end
 endmodule
+

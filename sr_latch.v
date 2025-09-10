@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06.09.2025 20:22:46
+// Create Date: 06.09.2025 21:05:15
 // Design Name: 
 // Module Name: sr_latch
 // Project Name: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-// SR Latch using NAND gates
+// SR Latch using NOR gates
 module sr_latch (
     input S,   // Set
     input R,   // Reset
@@ -28,7 +28,7 @@ module sr_latch (
     output Qbar
 );
 
-    nand (Q, S, Qbar);   // First NAND gate
-    nand (Qbar, R, Q);   // Second NAND gate
+    nor (Q, R, Qbar);   // First NOR gate
+    nor (Qbar, S, Q);   // Second NOR gate
 
 endmodule
